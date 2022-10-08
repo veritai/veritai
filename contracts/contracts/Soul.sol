@@ -5,7 +5,16 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
 contract Soul {
 
-  
+   mapping (uint256 => bytes32) private recoveryRoots;
+
+  function checkValidity(bytes32[] calldata _merkleProof, bytes32 _root, bytes32 leaf) 
+    public view 
+    returns (bool)
+  {
+    // bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+    require(MerkleProof.verify(_merkleProof, _root, leaf), "Incorrect proof");
+    return true; // Or you can mint tokens here
+  }
 
   /**
      * @dev See {IERC721-transferFrom}.
