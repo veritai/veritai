@@ -16,6 +16,15 @@ contract Soul {
     return true; // Or you can mint tokens here
   }
 
+  
+  function getRoot(uint256 tokenId)
+    public
+    view
+    returns (bytes32)
+  {
+    return recoveryRoots[tokenId];
+  }
+
   /**
      * @dev See {IERC721-transferFrom}.
      */
