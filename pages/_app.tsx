@@ -3,6 +3,9 @@ import type {AppProps} from 'next/app'
 
 import type {ConfigOptions} from '@web3modal/react'
 import {Web3Modal} from '@web3modal/react'
+import {GlobalStyles} from "../styles/global.styled";
+import {theme} from "../styles/theme.styled";
+import {ThemeProvider} from "styled-components";
 
 const config: ConfigOptions = {
     projectId: 'b08b940279a402deb35485e65e2a76b6',
@@ -16,7 +19,10 @@ const config: ConfigOptions = {
 function MyApp({Component, pageProps}: AppProps) {
     return (
         <>
-            <Component {...pageProps} />
+            <ThemeProvider theme={theme}>
+                <GlobalStyles/>
+                <Component {...pageProps} />
+            </ThemeProvider>
             <Web3Modal config={config}/>
         </>
     )
