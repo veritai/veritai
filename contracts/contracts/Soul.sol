@@ -3,9 +3,10 @@ pragma solidity >=0.7.0 <0.9.0;
 import "erc721a/contracts/IERC721A.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
-contract Soul {
+contract Soul is IERC721A {
 
    mapping (uint256 => bytes32) private recoveryRoots;
+   mapping (uint256 => address) private owners;
 
   function checkValidity(bytes32[] calldata _merkleProof, bytes32 _root, bytes32 leaf) 
     public view 
@@ -23,6 +24,16 @@ contract Soul {
     returns (bytes32)
   {
     return recoveryRoots[tokenId];
+  }
+
+  
+  function recoverSoul(uint256 tokenId, bytes32[] calldata _merkleProof, bytes32 leaf) 
+    public
+  {
+    address owner = this.ownerOf(tokenId);
+    bytes32 root = recoveryRoots[tokenId];
+    require(checkValidity(_merkleProof, root, leaf), "Invalid recovery ids");
+    owners[tokenId] = msg.sender;
   }
 
   /**
