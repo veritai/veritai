@@ -3,10 +3,13 @@ pragma solidity >=0.7.0 <0.9.0;
 import "erc721a/contracts/IERC721A.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
-contract Soul is IERC721A {
+contract Soul {
 
-   mapping (uint256 => bytes32) private recoveryRoots;
-   mapping (uint256 => address) private owners;
+  mapping (uint256 => address) private owners;
+
+  mapping (uint256 => bytes32) private recoveryRoots;
+
+  uint256 private _currentIndex = 1;
 
   function checkValidity(bytes32[] calldata _merkleProof, bytes32 _root, bytes32 leaf) 
     public view 
@@ -17,7 +20,16 @@ contract Soul is IERC721A {
     return true; // Or you can mint tokens here
   }
 
-  
+  constructor() {}
+
+  // public
+  function mint(bytes32 _root) public returns (uint256) {
+    recoveryRoots[_currentIndex] = _root;
+    owners[_currentIndex] = msg.sender;
+    _currentIndex++;
+    return _currentIndex;
+  }
+
   function getRoot(uint256 tokenId)
     public
     view
@@ -26,7 +38,14 @@ contract Soul is IERC721A {
     return recoveryRoots[tokenId];
   }
 
-  
+  function ownerOf(uint256 tokenId) 
+    external view 
+    returns (address owner)
+  {
+    return owners[tokenId];
+  }
+
+
   function recoverSoul(uint256 tokenId, bytes32[] calldata _merkleProof, bytes32 leaf) 
     public
   {
