@@ -6,6 +6,8 @@ import {Web3Modal} from '@web3modal/react'
 import {GlobalStyles} from "../styles/global.styled";
 import {theme} from "../styles/theme.styled";
 import {ThemeProvider} from "styled-components";
+
+import { chains, providers } from '@web3modal/ethereum';
 import {HeaderLayout} from "../src/components/layout/HeaderLayout/Header.layout";
 
 const config: ConfigOptions = {
@@ -13,7 +15,12 @@ const config: ConfigOptions = {
     theme: 'dark',
     accentColor: 'default',
     ethereum: {
-        appName: 'web3Modal'
+        appName: 'web3Modal',
+        chains: [chains.polygon],
+        providers: [
+            providers.alchemyProvider({ apiKey: process.env.ALCHEMY_URL }),
+            providers.publicProvider()
+          ]
     }
 }
 
