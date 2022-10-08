@@ -6,8 +6,9 @@ import {Web3Modal} from '@web3modal/react'
 import {GlobalStyles} from "../styles/global.styled";
 import {theme} from "../styles/theme.styled";
 import {ThemeProvider} from "styled-components";
-import { chains, providers } from '@web3modal/ethereum';
 
+import { chains, providers } from '@web3modal/ethereum';
+import {HeaderLayout} from "../src/components/layout/HeaderLayout/Header.layout";
 
 const config: ConfigOptions = {
     projectId: 'b08b940279a402deb35485e65e2a76b6',
@@ -28,6 +29,7 @@ function MyApp({Component, pageProps}: AppProps) {
         <>
             <ThemeProvider theme={theme}>
                 <GlobalStyles/>
+                <HeaderLayout/>
                 <Component {...pageProps} />
             </ThemeProvider>
             <Web3Modal config={config}/>
