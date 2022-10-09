@@ -6,6 +6,14 @@ import {
 import {CategoryShapeAtom} from "../../atoms/CategoryShapeAtom/CategoryShape.atom";
 
 import categoryIMG from '../../../assets/pictures/issuerPic.png';
+import ccIMG from '../../../assets/pictures/ccIMG.png';
+import poapIMG from '../../../assets/pictures/poapDEVCON.png';
+import vacineIMG from '../../../assets/pictures/covidVacine.png';
+
+import medicalICON from '../../../assets/medicalICON.png';
+import eventsICON from '../../../assets/eventsICON.png';
+import idICON from '../../../assets/idICON.png';
+
 import {PropertyDataOrganism} from "../../organisms/PropertyDataOrganism/PropertyData.organism";
 import { useAccount } from '@web3modal/react';
 import { useEffect, useState } from "react";
@@ -22,22 +30,28 @@ export const ProfileTokensSection = () => {
         {
             name: 'Vaxination',
             properties: {
-                description: '2nd covid booster'
-            }
+                description: '2nd covid booster',
+                nftURL: 'https://www.google.com',
+                category: 'Medical records',
+            },
         },
         {
             name: 'Devcon POAP',
             properties: {
-                description: 'Proof of attendence at devcon'
+                description: 'Proof of attendence at devcon',
+                nftURL: 'https://www.google.com',
+                category: 'Events',
             },
         },
         {
             name: 'Proof of humanity',
             properties: {
-                description: 'PoH NFT'
+                description: 'PoH NFT',
+                nftURL: 'https://www.google.com',
+                category: 'Personal IDENTITY',
             },
         },
-        
+
     ]);
 
     useEffect(() => {
@@ -48,7 +62,7 @@ export const ProfileTokensSection = () => {
                 params: {chain: 'mumbai', format: 'decimal'},
                 headers: {accept: 'application/json', 'X-API-Key': 'test'}
               };
-    
+
             axios
             .request(options)
             .then(function (response) {
@@ -61,7 +75,7 @@ export const ProfileTokensSection = () => {
         }
     }, [isConnected]);
 
-    
+
 
     return (
         <ProfileTokensWrapper>
@@ -69,22 +83,19 @@ export const ProfileTokensSection = () => {
                 <h2>Categories</h2>
                 <CategoryShapeAtom
                     alt='Category Icon'
-                    src={categoryIMG.src}/>
+                    src={medicalICON.src}/>
                 <CategoryShapeAtom
                     alt='Category Icon'
-                    src={categoryIMG.src}/>
+                    src={eventsICON.src}/>
+                <CategoryShapeAtom
+                    alt='Category Icon'
+                    src={idICON.src}/>
             </ProfileTokensCatergoryWrapper>
             <PerofileTokensContentWrapper>
                 <h2>NFts & SBTs</h2>
                 <CategoryShapeAtom
                     alt='Category Icon'
-                    src={categoryIMG.src}/>
-                <CategoryShapeAtom
-                    alt='Category Icon'
-                    src={categoryIMG.src}/>
-                <CategoryShapeAtom
-                    alt='Category Icon'
-                    src={categoryIMG.src}/>
+                    src={ccIMG.src}/>
             </PerofileTokensContentWrapper>
             <PropertyDataOrganism/>
         </ProfileTokensWrapper>
