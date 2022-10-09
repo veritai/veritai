@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const WelcomeMainWrapper = styled.section`
-    padding: 8rem 1rem;
+  padding: 15rem 1rem;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 
 `;
 
@@ -16,5 +20,5 @@ export const WelcomeMainCardsWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 `;

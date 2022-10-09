@@ -1,38 +1,42 @@
-import {RoleCardIMG, RoleCardText, RoleCardWrapper} from "./RoleCard.styled";
+import {RoleCardFile, RoleCardIMG, RoleCardText, RoleCardWrapper} from "./RoleCard.styled";
 import {IconButtonMolecule} from "../../molecules/IconButtonMolecule/IconButton.molecule";
 import {ConnectButton} from "@web3modal/react";
 import React, {MouseEventHandler} from "react";
-
-
-
-// import { ConnectButton, useConnectModal } from '@web3modal/react'
-
 
 interface Props {
     iconButtonSrc: string;
     cardTitle: string;
     iconText: string;
     connectButton?: boolean;
-    srcIMG: string;
+    srcIMG?: string;
     onClick: () => void;
-    // onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+    isCardIMGenabled?: boolean;
 }
 
 export const RoleCardOrganism = (props: Props) => {
 
-
-    // const { isOpen, open, close } = useConnectModal()
-
-    const {iconButtonSrc, cardTitle, iconText, connectButton = false, srcIMG, onClick, } = props;
+    const {iconButtonSrc, cardTitle, iconText, connectButton = false, srcIMG, onClick, isCardIMGenabled = true} = props;
 
     return (
         <RoleCardWrapper>
             <RoleCardText>{cardTitle}</RoleCardText>
-            <RoleCardIMG src={srcIMG} alt="Role Card Image"/>
+            {
+                !isCardIMGenabled &&
+                <RoleCardFile>
+                    <label htmlFor="avatar">Choose a profile picture:
+                        <input type="file"
+                               id="avatar" name="avatar"
+                               accept="image/png, image/jpeg"/>
+                    </label>
+                </RoleCardFile>
+            }
+            {isCardIMGenabled &&
+                <RoleCardIMG src={srcIMG} alt="Role Card Image"/>
+            }
             {
                 !connectButton &&
                 <IconButtonMolecule
-                    iconText = {iconText}
+                    iconText={iconText}
                     src={iconButtonSrc}
                     backgroundColor={'#322DC1'}
                     borderColor={'#322DC1'}
@@ -44,7 +48,7 @@ export const RoleCardOrganism = (props: Props) => {
                 />
             }
             {
-                connectButton && <ConnectButton />
+                connectButton && <ConnectButton/>
             }
         </RoleCardWrapper>
     )
