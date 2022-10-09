@@ -8,13 +8,19 @@ const hre = require("hardhat");
 
 async function main() {
   
+  // const SoulFactory = await hre.ethers.getContractFactory("Soul");
+  // const SoulContract = await SoulFactory.deploy();
 
-  const SoulFactory = await hre.ethers.getContractFactory("Soul");
-  const SoulContract = await SoulFactory.deploy();
+  // console.log({"Soulcontract address": SoulContract.address});
 
-  console.log({"Soulcontract address": SoulContract.address});
+  // await SoulContract.deployed();
 
-  await SoulContract.deployed();
+  const AttestationFactory = await hre.ethers.getContractFactory("AttestationNFT");
+  const AttestationContract = await AttestationFactory.deploy();
+
+  console.log({"AttestationContract address": AttestationContract.address});
+
+  await AttestationContract.deployed();
   
 }
 

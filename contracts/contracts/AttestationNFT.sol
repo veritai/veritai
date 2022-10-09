@@ -6,6 +6,7 @@ contract AttestationNFT is ERC721A {
     
   mapping (uint256 => uint256) soulIds;
   mapping (uint256 => string) private tokenUris;
+  mapping (uint256 => string) private categories;
   mapping (uint256 => uint256) private nftReferences; //TODO
 
   function tokenURI(uint256 tokenId) 
@@ -19,13 +20,14 @@ contract AttestationNFT is ERC721A {
 
   constructor() ERC721A("ANft", "Attestation Nft") {}
 
-  function mint(string memory uri, uint256 soulId) 
+  function mint(string memory uri, uint256 soulId, string memory category) 
     public 
     returns (uint256) 
   {
     uint256 index = _currentIndex;
     tokenUris[index] = uri;
     soulIds[index] = soulId;
+    categories[index] = category;
     _safeMint(msg.sender, 1);
     return index;
   }
