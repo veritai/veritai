@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProfileTokensWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 12.7rem;
   padding: 5% 10%;
