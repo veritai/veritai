@@ -2,11 +2,20 @@ import {IndexMainWrapper} from "./IndexMain.styled";
 import {RoleCardOrganism} from "../../organisms/RoleCardOrganism/RoleCard.organism";
 import walletIcon from '../../../assets/walletIcon.svg'
 import {SpanAtom} from "../../atoms/SpanAtom/Span.atom";
-
+import { useAccount } from '@web3modal/react';
+import {useRouter} from "next/router";
+import { useEffect } from "react";
 import connectIMG from "../../../assets/pictures/connectPicture.png";
 
 
 export const IndexMainSection = () => {
+    const { address, isConnected } = useAccount();
+    const router = useRouter();
+
+    if (isConnected) {
+        router.push('/welcome');
+    }
+
     return (
         <IndexMainWrapper>
             <h1>WELCOME TO
