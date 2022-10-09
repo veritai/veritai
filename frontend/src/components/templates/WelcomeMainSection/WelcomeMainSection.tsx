@@ -12,6 +12,29 @@ import userProfileICON from "../../../assets/userProfileICON.svg";
 import issuerICON from "../../../assets/issuerICON.svg";
 
 import {useRouter} from "next/router";
+import { soulAbi } from '../../crypto/soul_abi';
+import { useContractWrite, useWaitForTransaction } from '@web3modal/react';
+const {MerkleTree} = require("merkletreejs")
+const keccak256 = require("keccak256")
+
+const createMerkleTree = () => {
+    let hashes = [
+      "0x...",
+      "jdfljsdfjlkdsf",
+      "asldjalksjd"
+    ]
+  
+    // Hash addresses to get the leaves
+    let leaves = hashes.map(hash => keccak256(hash))
+    
+    // Create tree
+    let merkleTree = new MerkleTree(leaves, keccak256, {sortPairs: true})
+    // Get root
+    let rootHash = merkleTree.getRoot();
+    let leaf = keccak256("asldjalksjd");
+    let proof = merkleTree.getHexProof(leaf);
+    return {rootHash, leaf, proof};
+  }
 
 export const WelcomeMainSection = () => {
     const router = useRouter();

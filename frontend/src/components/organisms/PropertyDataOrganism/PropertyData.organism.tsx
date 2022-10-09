@@ -5,22 +5,34 @@ export const PropertyDataOrganism = () => {
     return (
         <PropertyDataWrapper>
             <PropertyDataTitle>
-                <h3>Category</h3>
-                <h3>NFT or SBT Name</h3>
+                <h3>Medical Records</h3>
+                <h3>Covid Vaccine III Doses</h3>
             </PropertyDataTitle>
             <PropertyDataProperties>
                 <h2>Properties: </h2>
                 <TokenPropertyAtom
-                    propertyKey='key'
-                    propertyValue='value'
+                    propertyKey='Vaccine name'
+                    propertyValue='Covid'
                 />
                 <TokenPropertyAtom
-                    propertyKey='key'
-                    propertyValue='value'
+                    propertyKey='Date of application'
+                    propertyValue='07/09/2021'
                 />
                 <TokenPropertyAtom
-                    propertyKey='key'
-                    propertyValue='value'
+                    propertyKey='Place of application'
+                    propertyValue='Sura Sao Paulo'
+                />
+                <TokenPropertyAtom
+                    propertyKey='City of application'
+                    propertyValue='Medellin'
+                />
+                <TokenPropertyAtom
+                    propertyKey='Country of application'
+                    propertyValue='Colombia'
+                />
+                <TokenPropertyAtom
+                    propertyKey='Doctor in charge'
+                    propertyValue='Elias Dercon'
                 />
             </PropertyDataProperties>
         </PropertyDataWrapper>
