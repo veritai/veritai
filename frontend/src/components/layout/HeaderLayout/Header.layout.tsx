@@ -39,7 +39,7 @@ export const HeaderLayout = () => {
                 <HeaderAdressWrapper>
                     <IconAtom src={walletIcon.src} alt='wallet logo'/>
                     <p>{`...${result}`}</p>
-                    <a onClick={handleDisconnect}>
+                    <a onClick={() => handleDisconnect()}>
                         <IconAtom src={logoutIcon.src} alt='logout logo'/>
                     </a>
                 </HeaderAdressWrapper>

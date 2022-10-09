@@ -41,7 +41,7 @@ export const WelcomeMainSection = () => {
         contractInterface: soulAbi,
         functionName: 'mint',
         args: [root], //times 10 cuz decimals, gotta fix this
-    })
+    });
 
     const { isLoading, isSuccess } = useWaitForTransaction({
         hash: data?.hash,
