@@ -2,6 +2,8 @@ import {RoleCardIMG, RoleCardText, RoleCardWrapper} from "./RoleCard.styled";
 import {IconButtonMolecule} from "../../molecules/IconButtonMolecule/IconButton.molecule";
 import {ConnectButton} from "@web3modal/react";
 
+
+
 // import { ConnectButton, useConnectModal } from '@web3modal/react'
 
 
@@ -15,6 +17,7 @@ interface Props {
 }
 
 export const RoleCardOrganism = (props: Props) => {
+
 
     // const { isOpen, open, close } = useConnectModal()
 
