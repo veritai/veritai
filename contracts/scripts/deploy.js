@@ -12,11 +12,10 @@ async function main() {
   const SoulFactory = await hre.ethers.getContractFactory("Soul");
   const SoulContract = await SoulFactory.deploy();
 
-  await lock.deployed();
+  console.log({"Soulcontract address": SoulContract.address});
 
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+  await SoulContract.deployed();
+  
 }
 
 // We recommend this pattern to be able to use async/await everywhere

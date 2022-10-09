@@ -13,7 +13,7 @@ interface Props {
     iconText: string;
     connectButton?: boolean;
     srcIMG: string;
-    handleClick?: () => void;
+    handleClick: Event;
 }
 
 export const RoleCardOrganism = (props: Props) => {
@@ -22,7 +22,7 @@ export const RoleCardOrganism = (props: Props) => {
     // const { isOpen, open, close } = useConnectModal()
 
     const {iconButtonSrc, cardTitle, iconText, connectButton = false, srcIMG, handleClick } = props;
-
+    console.log({handleClick})
     return (
         <RoleCardWrapper>
             <RoleCardText>{cardTitle}</RoleCardText>
@@ -38,7 +38,7 @@ export const RoleCardOrganism = (props: Props) => {
                     color={'#FFFFFF'}
                     // width={'25.0rem'}
                     height={'6.2rem'}
-                    onClick={() => handleClick}
+                    onClick={() => alert('yo')}
                 />
             }
             {
