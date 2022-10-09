@@ -20,7 +20,7 @@ export const HeaderLayout = () => {
     const router = useRouter();
 
     function* generator() {
-        yield disconnect();;
+        yield disconnect();
         yield router.push("/").then(r => console.log('User is disconnected, redirecting to profile page'));
     }
 
@@ -39,13 +39,13 @@ export const HeaderLayout = () => {
                     alt='logo'
                     width={'2.853rem'}
                 />
-                <h2>Veritai</h2>
+                <h2>VERITAI</h2>
             </IconWrapper>
             {isConnected &&
                 <HeaderAdressWrapper>
                     <IconAtom src={walletIcon.src} alt='wallet logo'/>
                     <p>{`...${result}`}</p>
-                    <a onClick={() => gen.next()}>
+                    <a onClick={() => gen.next() && gen.next()}>
                         <IconAtom src={logoutIcon.src} alt='logout logo'/>
                     </a>
                 </HeaderAdressWrapper>
