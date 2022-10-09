@@ -45,7 +45,9 @@ export const HeaderLayout = () => {
                 <HeaderAdressWrapper>
                     <IconAtom src={walletIcon.src} alt='wallet logo'/>
                     <p>{`...${result}`}</p>
-                    <a onClick={() => gen.next() && gen.next()}>
+                    <a onClick={() => gen.next() &&
+                        // setTimeout(() => gen.next(), 1000)}>
+                        gen.next()}>
                         <IconAtom src={logoutIcon.src} alt='logout logo'/>
                     </a>
                 </HeaderAdressWrapper>
