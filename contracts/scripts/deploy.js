@@ -8,15 +8,20 @@ const hre = require("hardhat");
 
 async function main() {
   
+  // const SoulFactory = await hre.ethers.getContractFactory("Soul");
+  // const SoulContract = await SoulFactory.deploy();
 
-  const SoulFactory = await hre.ethers.getContractFactory("Soul");
-  const SoulContract = await SoulFactory.deploy();
+  // console.log({"Soulcontract address": SoulContract.address});
 
-  await lock.deployed();
+  // await SoulContract.deployed();
 
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+  const AttestationFactory = await hre.ethers.getContractFactory("AttestationNFT");
+  const AttestationContract = await AttestationFactory.deploy();
+
+  console.log({"AttestationContract address": AttestationContract.address});
+
+  await AttestationContract.deployed();
+  
 }
 
 // We recommend this pattern to be able to use async/await everywhere
