@@ -7,8 +7,44 @@ import {CategoryShapeAtom} from "../../atoms/CategoryShapeAtom/CategoryShape.ato
 
 import categoryIMG from '../../../assets/pictures/issuerPic.png';
 import {PropertyDataOrganism} from "../../organisms/PropertyDataOrganism/PropertyData.organism";
+import { useAccount } from '@web3modal/react';
+import { useEffect } from "react";
+
+// Usage
+
+import axios from 'axios';
+
+
+
+
 
 export const ProfileTokensSection = () => {
+    const { address, isConnected } = useAccount();
+
+    console.log({address});
+
+    useEffect(() => {
+        if (address) {
+            const options = {
+                method: 'GET',
+                url: `https://deep-index.moralis.io/api/v2/${address}/nft`,
+                params: {chain: 'mumbai', format: 'decimal'},
+                headers: {accept: 'application/json', 'X-API-Key': 'test'}
+              };
+    
+            axios
+            .request(options)
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+        }
+    }, [isConnected]);
+
+    
+
     return (
         <ProfileTokensWrapper>
             <ProfileTokensCatergoryWrapper>
