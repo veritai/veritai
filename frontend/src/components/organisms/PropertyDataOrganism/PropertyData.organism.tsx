@@ -9,6 +9,15 @@ export const PropertyDataOrganism = () => {
                 <h3>NFT or SBT Name</h3>
             </PropertyDataTitle>
             <PropertyDataProperties>
+                <h2>Properties: </h2>
+                <TokenPropertyAtom
+                    propertyKey='key'
+                    propertyValue='value'
+                />
+                <TokenPropertyAtom
+                    propertyKey='key'
+                    propertyValue='value'
+                />
                 <TokenPropertyAtom
                     propertyKey='key'
                     propertyValue='value'
