@@ -14,7 +14,9 @@ import {useRouter} from "next/router";
 export const HeaderLayout = () => {
     const {address, isConnected} = useAccount()
     const result = address.slice(-5);
+
     const disconnect = useDisconnect()
+
     const router = useRouter();
 
     const handleDisconnect = () => {
