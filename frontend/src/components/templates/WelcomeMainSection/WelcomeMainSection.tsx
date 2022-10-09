@@ -31,6 +31,8 @@ const createMerkleTree = () => {
 export const WelcomeMainSection = () => {
 
     const router = useRouter();
+    const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        console.log('element clicked')}
 
     const root = createMerkleTree();
     
@@ -76,7 +78,8 @@ export const WelcomeMainSection = () => {
                     iconText='Profile'
                     srcIMG={userTokensIMG.src}
                     width='15.rem'
-                    handleClick={() => router.push("/profile")}
+                    onClick={() => router.push("/profile")}
+                    // onClick={handleClick}
                 />
                 <RoleCardOrganism
                     cardTitle='Issuer Dashboard'
