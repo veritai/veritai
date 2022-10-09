@@ -6,4 +6,5 @@ export const IndexMainWrapper = styled.main`
   align-items: center;
   justify-content: center;
   row-gap: 2rem;
+  height: 80rem;
 `;
