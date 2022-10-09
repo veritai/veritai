@@ -5,6 +5,12 @@ import issuerIMG from "../../../assets/pictures/issuerPic.png";
 import recoverIMG from "../../../assets/pictures/recoverPic.png";
 import userTokensIMG from "../../../assets/pictures/userTokensPic.png";
 import setUpIMG from "../../../assets/pictures/setUpPic.png";
+
+import setupICON from "../../../assets/setupICON.svg";
+import recoverICON from "../../../assets/recoverICON.svg";
+import userProfileICON from "../../../assets/userProfileICON.svg";
+import issuerICON from "../../../assets/issuerICON.svg";
+
 import {useRouter} from "next/router";
 
 export const WelcomeMainSection = () => {
@@ -38,7 +44,7 @@ export const WelcomeMainSection = () => {
             <WelcomeMainCardsWrapper>
                 <RoleCardOrganism
                     cardTitle='New? Let’s start'
-                    iconButtonSrc={walletIcon.src}
+                    iconButtonSrc={setupICON.src}
                     iconText='Set my ID'
                     srcIMG={setUpIMG.src}
                     width='15.rem'
@@ -46,7 +52,7 @@ export const WelcomeMainSection = () => {
                 />
                 <RoleCardOrganism
                     cardTitle='Process to recover'
-                    iconButtonSrc={walletIcon.src}
+                    iconButtonSrc={recoverICON.src}
                     iconText='Recover ID'
                     srcIMG={recoverIMG.src}
                     width='15.rem'
@@ -54,7 +60,7 @@ export const WelcomeMainSection = () => {
                 />
                 <RoleCardOrganism
                     cardTitle='User Tokens'
-                    iconButtonSrc={walletIcon.src}
+                    iconButtonSrc={userProfileICON.src}
                     iconText='Profile'
                     srcIMG={userTokensIMG.src}
                     width='15.rem'
@@ -63,7 +69,7 @@ export const WelcomeMainSection = () => {
                 />
                 <RoleCardOrganism
                     cardTitle='Issuer Dashboard'
-                    iconButtonSrc={walletIcon.src}
+                    iconButtonSrc={issuerICON.src}
                     iconText='Issuer'
                     srcIMG={issuerIMG.src}
                     width='15.rem'
