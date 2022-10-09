@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileTokensWrapper = styled.div`
+export const ProfileTokensWrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;

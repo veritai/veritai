@@ -1,8 +1,8 @@
 import {NextPage} from "next";
-import {IconButtonMolecule} from "../src/components/molecules/IconButtonMolecule/IconButton.molecule";
 import React from "react";
 
-import exampleICON from '../src/assets/contactIcon.svg';
+import {ProfileUserSection} from "../src/components/templates/ProfileUserSection/ProfileUser.section";
+import {SetupMainSection} from "../src/components/templates/SetupMainSection/SetupMain.section";
 
 const handleOnClick = () => {
     console.log('click');
@@ -11,17 +11,8 @@ const handleOnClick = () => {
 const SetUp: NextPage = () => {
     return (
         <>
-            <IconButtonMolecule
-                iconText = 'SetUp Page'
-                src={exampleICON.src}
-                backgroundColor={'#322DC1'}
-                borderColor={'#322DC1'}
-                iconWidth='1.8rem'
-                color={'#FFFFFF'}
-                // width={'25.0rem'}
-                height={'6.2rem'}
-                onClick={handleOnClick}
-            />
+            <ProfileUserSection/>
+            <SetupMainSection/>
         </>
     )
 }

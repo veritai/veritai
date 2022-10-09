@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const IndexMainWrapper = styled.div`
+export const IndexMainWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
