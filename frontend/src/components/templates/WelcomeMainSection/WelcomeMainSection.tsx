@@ -49,16 +49,16 @@ export const WelcomeMainSection = () => {
 
     const sendTx = () => {
         console.log('yo')
-        // write();
+        write();
     }
 
-    console.log({data});
+    console.log({data, isSuccess});
 
     return (
         <WelcomeMainWrapper>
             <WelcomeMainCardsWrapper>
                 <RoleCardOrganism
-                    handleClick={sendTx}
+                    onClick={() => sendTx()}
                     cardTitle='New? Let’s start'
                     iconButtonSrc={walletIcon.src}
                     iconText='Set my ID'
