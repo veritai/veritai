@@ -14,10 +14,6 @@ import { useEffect } from "react";
 
 import axios from 'axios';
 
-
-
-
-
 export const ProfileTokensSection = () => {
     const { address, isConnected } = useAccount();
 

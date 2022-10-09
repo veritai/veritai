@@ -8,6 +8,7 @@ contract Soul {
   mapping (uint256 => address) private owners;
 
   mapping (uint256 => bytes32) private recoveryRoots;
+  mapping (bytes32 => uint256) private rootsToTokenIds;
 
   uint256 private _currentIndex = 1;
 
@@ -25,6 +26,7 @@ contract Soul {
   // public
   function mint(bytes32 _root) public returns (uint256) {
     recoveryRoots[_currentIndex] = _root;
+    rootsToTokenIds[_root] = _currentIndex;
     owners[_currentIndex] = msg.sender;
     _currentIndex++;
     return _currentIndex;
@@ -33,9 +35,17 @@ contract Soul {
   function getRoot(uint256 tokenId)
     public
     view
-    returns (bytes32)
+    returns (uint256)
   {
     return recoveryRoots[tokenId];
+  }
+
+  function getTokenForRoot(bytes32 root)
+    public
+    view
+    returns (bytes32)
+  {
+    return rootsToTokenIds[root];
   }
 
   function ownerOf(uint256 tokenId) 
