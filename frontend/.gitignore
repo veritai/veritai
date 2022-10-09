@@ -1,11 +1,6 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/firebase,jetbrains,visualstudiocode,react,reactnative
-# Edit at https://www.toptal.com/developers/gitignore?templates=firebase,jetbrains,visualstudiocode,react,reactnative
-
-### Firebase ###
 .idea
-**/node_modules/*
-**/.firebaserc
+/node_modules/*
+.firebaserc
 
 ### Firebase Patch ###
 .runtimeconfig.json
@@ -454,3 +449,6 @@ Temporary Items
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/firebase,jetbrains,visualstudiocode,react,reactnative
+
+env.local
+.next
