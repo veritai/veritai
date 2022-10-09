@@ -37,31 +37,7 @@ const createMerkleTree = () => {
   }
 
 export const WelcomeMainSection = () => {
-
     const router = useRouter();
-    const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        console.log('element clicked')}
-
-    const root = createMerkleTree();
-    
-    const { data, error, write } = useContractWrite({
-        addressOrName: '0xBAe4120557Bbef4b1052e934d6b9Bd22e2c77EA0',
-        contractInterface: soulAbi,
-        functionName: 'mint',
-        args: [root], //times 10 cuz decimals, gotta fix this
-    });
-
-    const { isLoading, isSuccess } = useWaitForTransaction({
-        hash: data?.hash,
-    });
-
-    const sendTx = () => {
-        console.log('yo')
-        write();
-    }
-
-    console.log({data, isSuccess});
-
     return (
         <WelcomeMainWrapper>
             <WelcomeMainCardsWrapper>

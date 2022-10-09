@@ -1,7 +1,8 @@
 import {RoleCardFile, RoleCardIMG, RoleCardText, RoleCardWrapper} from "./RoleCard.styled";
 import {IconButtonMolecule} from "../../molecules/IconButtonMolecule/IconButton.molecule";
 import {ConnectButton} from "@web3modal/react";
-import React, {MouseEventHandler} from "react";
+import React, {MouseEventHandler, useState } from "react";
+const keccak256 = require("keccak256");
 
 interface Props {
     iconButtonSrc: string;
@@ -15,7 +16,17 @@ interface Props {
 
 export const RoleCardOrganism = (props: Props) => {
 
+    const [fileHash, setFileHash] = useState(''); 
+
     const {iconButtonSrc, cardTitle, iconText, connectButton = false, srcIMG, onClick, isCardIMGenabled = true} = props;
+
+    var loadFile = (event) => {
+        // const fileHash = keccak256(event.target.files[0]);
+        const fileHash = keccak256("xxx");
+        setFileHash(fileHash);
+        window.fileHash = fileHash;
+	    // image.src = URL.createObjectURL(event.target.files[0]);
+    }
 
     return (
         <RoleCardWrapper>
@@ -25,6 +36,7 @@ export const RoleCardOrganism = (props: Props) => {
                 <RoleCardFile>
                     <label htmlFor="avatar">Choose a profile picture:
                         <input type="file"
+                                onChange={(e) => loadFile(e)}
                                id="avatar" name="avatar"
                                accept="image/png, image/jpeg"/>
                     </label>

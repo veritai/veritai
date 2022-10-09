@@ -8,16 +8,37 @@ import {CategoryShapeAtom} from "../../atoms/CategoryShapeAtom/CategoryShape.ato
 import categoryIMG from '../../../assets/pictures/issuerPic.png';
 import {PropertyDataOrganism} from "../../organisms/PropertyDataOrganism/PropertyData.organism";
 import { useAccount } from '@web3modal/react';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Usage
+
 
 import axios from 'axios';
 
 export const ProfileTokensSection = () => {
     const { address, isConnected } = useAccount();
 
-    console.log({address});
+    const [currentNfts, setCurrentNfts] = useState([
+        {
+            name: 'Vaxination',
+            properties: {
+                description: '2nd covid booster'
+            }
+        },
+        {
+            name: 'Devcon POAP',
+            properties: {
+                description: 'Proof of attendence at devcon'
+            },
+        },
+        {
+            name: 'Proof of humanity',
+            properties: {
+                description: 'PoH NFT'
+            },
+        },
+        
+    ]);
 
     useEffect(() => {
         if (address) {
@@ -31,6 +52,7 @@ export const ProfileTokensSection = () => {
             axios
             .request(options)
             .then(function (response) {
+                setCurrentNfts(response.data);
                 console.log(response.data);
             })
             .catch(function (error) {
