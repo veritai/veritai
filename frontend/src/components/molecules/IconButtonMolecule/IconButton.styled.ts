@@ -15,5 +15,10 @@ export const IconButtonWrapper = styled.button<IconButtonPropsT>`
   border: 0.1rem solid ${({borderColor}) => borderColor};
   color: ${({color}) => color};
   width: ${({width}) => width};
-    height: ${({height}) => height};
+  height: ${({height}) => height};
+  &:hover {
+    color: ${({color}) => color};
+    background-color: transparent;
+    border: 0.1rem solid ${({color}) => color};
+  }
 `;

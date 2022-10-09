@@ -5,8 +5,7 @@ export const RoleCardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  max-width: 35.4rem;
-  min-width: 29.8rem;
+  width: 35.4rem;
   padding: 3%;
   height: 41.9rem;
   background: linear-gradient(180deg, #322DC1 0%, #170F34 100%);
@@ -25,5 +24,5 @@ export const RoleCardText = styled.h2`
 `;
 
 export const RoleCardIMG = styled.img`
-    
+    height: 20rem;
 `;

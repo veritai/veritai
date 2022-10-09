@@ -3,6 +3,8 @@ import {RoleCardOrganism} from "../../organisms/RoleCardOrganism/RoleCard.organi
 import walletIcon from '../../../assets/walletIcon.svg'
 import {SpanAtom} from "../../atoms/SpanAtom/Span.atom";
 
+import connectIMG from "../../../assets/pictures/connectPicture.png";
+
 
 export const IndexMainSection = () => {
     return (
@@ -10,15 +12,16 @@ export const IndexMainSection = () => {
             <h1>WELCOME TO
                 <SpanAtom
                     color={'#52EB70'}
-                    text={'VERITARI'}
+                    text={'VERITAI'}
                 />
             </h1>
             <p>REAL IDENTITY</p>
             <RoleCardOrganism
-                cardTitle='To start connect to your wallet direclty from the button'
+                cardTitle='To start, connect to your wallet directly from the button'
                 iconButtonSrc={walletIcon.src}
                 iconText='Connect'
                 connectButton={true}
+                srcIMG={connectIMG.src}
             />
         </IndexMainWrapper>
     )

@@ -1,7 +1,6 @@
 import {RoleCardIMG, RoleCardText, RoleCardWrapper} from "./RoleCard.styled";
 import {IconButtonMolecule} from "../../molecules/IconButtonMolecule/IconButton.molecule";
 import {ConnectButton} from "@web3modal/react";
-import srcIMG from '../../../../src/assets/pictures/connectPicture.png'
 
 // import { ConnectButton, useConnectModal } from '@web3modal/react'
 
@@ -11,18 +10,20 @@ interface Props {
     cardTitle: string;
     iconText: string;
     connectButton?: boolean;
+    srcIMG: string;
+    handleClick?: () => void;
 }
 
 export const RoleCardOrganism = (props: Props) => {
 
     // const { isOpen, open, close } = useConnectModal()
 
-    const {iconButtonSrc, cardTitle, iconText, connectButton = false } = props;
+    const {iconButtonSrc, cardTitle, iconText, connectButton = false, srcIMG, handleClick } = props;
 
     return (
         <RoleCardWrapper>
             <RoleCardText>{cardTitle}</RoleCardText>
-            <RoleCardIMG src={srcIMG.src} alt="Role Card Image"/>
+            <RoleCardIMG src={srcIMG} alt="Role Card Image"/>
             {
                 !connectButton &&
                 <IconButtonMolecule
@@ -34,7 +35,7 @@ export const RoleCardOrganism = (props: Props) => {
                     color={'#FFFFFF'}
                     // width={'25.0rem'}
                     height={'6.2rem'}
-                    onClick={() => console.log('click')}
+                    onClick={() => handleClick}
                 />
             }
             {
