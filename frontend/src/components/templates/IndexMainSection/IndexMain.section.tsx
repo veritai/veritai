@@ -13,7 +13,7 @@ export const IndexMainSection = () => {
     const router = useRouter();
 
     if (isConnected) {
-        router.push('/welcome');
+        router.push('/welcome').then(r => console.log('User is connected, redirecting to welcome page'));
     }
 
     return (

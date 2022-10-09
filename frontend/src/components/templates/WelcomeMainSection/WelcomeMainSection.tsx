@@ -10,6 +10,8 @@ import {useRouter} from "next/router";
 export const WelcomeMainSection = () => {
 
     const router = useRouter();
+    const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        console.log('element clicked')}
 
     return (
         <WelcomeMainWrapper>
@@ -34,7 +36,8 @@ export const WelcomeMainSection = () => {
                     iconText='Profile'
                     srcIMG={userTokensIMG.src}
                     width='15.rem'
-                    handleClick={() => router.push("/profile")}
+                    onClick={() => router.push("/profile")}
+                    // onClick={handleClick}
                 />
                 <RoleCardOrganism
                     cardTitle='Issuer Dashboard'

@@ -10,7 +10,7 @@ interface Props {
     color: string;
     width?: string;
     height?: string;
-    onClick?: () => void;
+    onClick: () => void;
 }
 
 export const IconButtonMolecule = ( props: Props) => {
@@ -24,7 +24,8 @@ export const IconButtonMolecule = ( props: Props) => {
             color={`${color}`}
             width={`${width}`}
             height={`${height}`}
-            onClick={ () => onClick}
+            onClick={onClick}
+            // onClick={ () => console.log('clicked')}
         >
             <IconAtom
                 width={`${iconWidth}`}
