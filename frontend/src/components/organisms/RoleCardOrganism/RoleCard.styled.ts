@@ -24,5 +24,12 @@ export const RoleCardText = styled.h2`
 `;
 
 export const RoleCardIMG = styled.img`
-    height: 20rem;
+  height: 20rem;
+`;
+
+export const RoleCardFile = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;

@@ -19,11 +19,17 @@ export const HeaderLayout = () => {
 
     const router = useRouter();
 
-    const handleDisconnect = () => {
-        disconnect();
-        router.push("/").then(r => console.log('User is disconnected, redirecting to profile page'));
-
+    function* generator() {
+        yield disconnect();;
+        yield router.push("/").then(r => console.log('User is disconnected, redirecting to profile page'));
     }
+
+    const gen = generator();
+
+    // const handleDisconnect = async () => {
+    //     await disconnect();
+    //     router.push("/").then(r => console.log('User is disconnected, redirecting to profile page'));
+    // }
 
     return (
         <HeaderWrapper>
@@ -39,7 +45,7 @@ export const HeaderLayout = () => {
                 <HeaderAdressWrapper>
                     <IconAtom src={walletIcon.src} alt='wallet logo'/>
                     <p>{`...${result}`}</p>
-                    <a onClick={() => handleDisconnect()}>
+                    <a onClick={() => gen.next()}>
                         <IconAtom src={logoutIcon.src} alt='logout logo'/>
                     </a>
                 </HeaderAdressWrapper>

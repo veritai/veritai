@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileUserWrapper = styled.div`
+export const ProfileUserWrapper = styled.section`
   display: flex;
   justify-content: flex-start;
   align-items: center;
