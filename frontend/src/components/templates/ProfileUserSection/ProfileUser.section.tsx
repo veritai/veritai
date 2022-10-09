@@ -5,6 +5,8 @@ import walletIcon from "../../../assets/walletIcon.svg";
 import nickNameICON from "../../../assets/nickNameICON.svg";
 import {useAccount} from "@web3modal/react";
 
+import userSBT from '../../../assets/pictures/userSBT.png';
+
 export const ProfileUserSection = () => {
 
     const {address, isConnected} = useAccount()
@@ -15,7 +17,7 @@ export const ProfileUserSection = () => {
     return (
         <ProfileUserWrapper>
             <CategoryShapeAtom
-                src={walletIcon.src} alt='wallet logo'
+                src={userSBT.src} alt='wallet logo'
             />
             <ProfileUserSubWrapper>
                 <ProfileUserContent>
